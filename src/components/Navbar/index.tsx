@@ -34,7 +34,7 @@ function Navbar() {
                         </nav>
                     </div>
 
-                    {/* Right: Desktop Auth + Tools */}
+                    {/* Right: Desktop */}
                     <div className="hidden md:flex items-center gap-6 text-sm font-semibold">
                         {/* <a href="#" className="hover:text-sky-500 dark:hover:text-sky-400">Login</a>
 

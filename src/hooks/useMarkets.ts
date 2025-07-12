@@ -3,14 +3,13 @@ import { onValue, ref, off } from "firebase/database";
 import { rtdb } from "@/lib/firebase";
 import { MarketData } from "@/types";
 
-
+//This is a custom Hook which we can use it just like a normal hook
 export function useMarkets() {
     const [markets, setMarkets] = useState<MarketData[]>([]);
     const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const cryptoDataRef = ref(rtdb, "markets");
-
         const unsubscribe = onValue(
             cryptoDataRef,
             (snapshot) => {
@@ -28,7 +27,6 @@ export function useMarkets() {
                 setIsLoading(false);
             }
         );
-
         return () => {
             off(cryptoDataRef, "value", unsubscribe);
         };

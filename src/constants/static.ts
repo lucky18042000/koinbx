@@ -1,3 +1,4 @@
+// this is static column data
 export const HotColumnData = [
     'Trending Pairs',
     'Last Price',

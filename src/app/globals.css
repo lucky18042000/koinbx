@@ -4,5 +4,6 @@
 
 body {
   font-family: 'Inter', sans-serif;
+  /* This line is for light and bark mode */
   @apply bg-white text-black dark:bg-gray-900 dark:text-white transition-colors duration-300;
 }

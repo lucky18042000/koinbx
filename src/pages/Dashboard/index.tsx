@@ -14,12 +14,11 @@ function Dashboard() {
     const { markets, isLoading } = useMarkets();
     console.log(markets, 'markets', isLoading);
 
-    // TODO: Replace with real data from useMarkets
     const data: MarketData[] = markets;
     const now = Date.now();
     const oneWeekAgo = now - 7 * 24 * 60 * 60 * 1000;
 
-    // filter data based on active tab
+    // filtering data based on active tab
     const filteredData: MarketData[] = useMemo(() => {
         return data.filter((item) => {
             if (activeTab === "Hot List") return Math.abs(item.change) >= 3;
@@ -33,10 +32,10 @@ function Dashboard() {
             <Navbar />
             <div className="mt-12 flex flex-col justify-center items-center w-[90%] md:w-[70%] mx-auto">
                 <div className="w-full mb-4">
+                    {/* Headline */}
                     <h1 className="text-3xl font-semibold mb-4 dark:text-white">
                         Catch your Next Trading Opportunity
                     </h1>
-
                     {/* Tab Buttons */}
                     <div className="flex w-full bg-gray-100 dark:bg-[#1a213d] gap-4">
                         {["Hot List", "New List"].map((cat) => (
@@ -57,7 +56,7 @@ function Dashboard() {
                     <CryptoTable tableColumn={column} data={filteredData} loading={isLoading}>
                         {filteredData.map((item) => (
                             <tr key={item.pair} className="dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-[#232b45] transition">
-                                {/* Trending Pairs */}
+                                {/* Trending Pairs icon + name */}
                                 <td className="px-4 md:px-6 py-4 flex items-center gap-2 whitespace-nowrap">
                                     <span className="w-8 h-8 rounded-full bg-white flex items-center justify-center shadow border border-gray-100 dark:border-gray-700">
                                         <Image src={item.icon} alt={item.pair} width={28} height={28}
